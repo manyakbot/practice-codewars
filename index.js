@@ -1,13 +1,5 @@
-function findUniq(arr) {
-    const frequency = {};
-
-    for (let num of arr) {
-        frequency[num] = (frequency[num] || 0) + 1;
-    }
-
-    for (let key in frequency) {
-        if (frequency[key] === 1) {
-            return parseFloat(key);
-        }
-    }
+function digPow(n, p) {
+    let digits = n.toString().split('').map(Number);
+    let sum = digits.reduce((acc, digit, index) => acc + Math.pow(digit, p + index), 0);
+    return sum % n === 0 ? sum / n : -1;
 }
