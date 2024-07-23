@@ -1,12 +1,13 @@
-function solution(str) {
-  if (str.length % 2 !== 0) {
-    str += "_";
-  }
+function findUniq(arr) {
+    const frequency = {};
 
-  let result = [];
-  for (let i = 0; i < str.length; i += 2) {
-    result.push(str[i] + str[i + 1]);
-  }
+    for (let num of arr) {
+        frequency[num] = (frequency[num] || 0) + 1;
+    }
 
-  return result;
+    for (let key in frequency) {
+        if (frequency[key] === 1) {
+            return parseFloat(key);
+        }
+    }
 }
